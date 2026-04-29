@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Las Huertas Staycation · Book your stay</title>
+ 
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #ffe4ec 0%, #ffd1dc 50%, #ffc0cb 100%);
+      color: #1a1e24;
+      line-height: 1.5;
+      position: relative;
+      min-height: 100vh;
+    }
+   
+    :root {
+      --pink-primary: #e272a1;
+      --pink-dark: #c73e6f;
+      --pink-soft: #fce4ef;
+      --pink-light: #fff1f5;
+      --border-light: #e6e6e6;
+      --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.05);
+      --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+
+    @media (min-width: 640px) {
+      .container {
+        padding: 1rem 1.5rem 2rem;
+      }
+    }
+
+
+    .booking-header {
+      background: white;
+      border-radius: 28px;
+      box-shadow: var(--shadow-card);
+      margin-bottom: 1.5rem;
+      border: 1px solid var(--border-light);
+      overflow: hidden;
+    }
+
+
+    .nav-bar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem;
+      gap: 0.8rem;
+      border-bottom: 1px solid #eee;
+    }
+
+
+    @media (min-width: 640px) {
+      .nav-bar {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1rem 2rem;
+      }
+    }
+
+
+    .logo-area {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+    .logo-icon {
+      background: var(--pink-primary);
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2rem;
+    }
+    .logo-text {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--pink-dark);
+      letter-spacing: -0.3px;
+    }
+
+
+    @media (min-width: 640px) {
+      .logo-text {
+        font-size: 1.3rem;
+      }
+    }
+
+
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      color: #5e5e5e;
+      text-align: center;
+    }
+
+
+    @media (min-width: 640px) {
+      .nav-links {
+        flex-direction: row;
+        gap: 1.5rem;
+        font-size: 0.85rem;
+      }
+    }
+
+
+    .hero-simple {
+      background: linear-gradient(95deg, #fff5f9 0%, #ffeef4 100%);
+      padding: 1.5rem 1rem;
+      text-align: center;
+    }
+
+
+    @media (min-width: 640px) {
+      .hero-simple {
+        padding: 2rem;
+      }
+    }
+
+
+    .hero-simple h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1e2a3a;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+
+    @media (min-width: 640px) {
+      .hero-simple h1 {
+        font-size: 2rem;
+        gap: 1.8rem;
+      }
+    }
+
+
+    @media (min-width: 768px) {
+      .hero-simple h1 {
+        font-size: 2.2rem;
+      }
+    }
+
+
+    .hero-simple p {
+      color: #6b4e62;
+      font-size: 0.85rem;
+    }
+
+
+    @media (min-width: 640px) {
+      .hero-simple p {
+        font-size: 1rem;
+      }
+    }
+
+
+    .hero-logo {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--pink-primary);
+      box-shadow: 0 6px 14px rgba(199, 62, 111, 0.25);
+      transition: transform 0.2s ease;
+    }
+
+
+    @media (min-width: 640px) {
+      .hero-logo {
+        width: 70px;
+        height: 70px;
+      }
+    }
+
+
+    @media (min-width: 768px) {
+      .hero-logo {
+        width: 85px;
+        height: 85px;
+      }
+    }
+
+
+    .hero-logo:hover {
+      transform: scale(1.05);
+    }
+
+
+    .info-cards-row {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+
+    @media (min-width: 640px) {
+      .info-cards-row {
+        flex-direction: row;
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+    }
+
+
+    .info-card {
+      background: white;
+      border-radius: 20px;
+      flex: 1;
+      padding: 1.2rem;
+      box-shadow: var(--shadow-card);
+      border: 1px solid var(--border-light);
+      position: relative;
+      overflow: hidden;
+    }
+
+
+    @media (min-width: 640px) {
+      .info-card {
+        padding: 1.4rem 1.6rem;
+      }
+    }
+
+
+    .duration-chips {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 12px 0;
+    }
+    .chip {
+      background: var(--pink-soft);
+      border-radius: 40px;
+      padding: 5px 12px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+
+    @media (min-width: 640px) {
+      .chip {
+        padding: 5px 14px;
+        font-size: 0.8rem;
+      }
+    }
+
+
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin: 1.5rem 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+
+    @media (min-width: 640px) {
+      .section-title {
+        font-size: 1.5rem;
+        margin: 2rem 0 1rem;
+      }
+    }
+
+
+    .section-title i {
+      color: var(--pink-primary);
+      font-size: 1.2rem;
+    }
+
+
+    @media (min-width: 640px) {
+      .section-title i {
+        font-size: 1.4rem;
+      }
+    }
+   
+    .property-scroll-container {
+      position: relative;
+      margin-bottom: 1.5rem;
+    }
+   
+    .property-grid {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding-bottom: 0.5rem;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+   
+    .property-grid::-webkit-scrollbar {
+      display: none;
+    }
+   
+    .property-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: 0.2s ease;
+      cursor: pointer;
+      border: 1px solid var(--border-light);
+      min-width: 280px;
+      max-width: 280px;
+      flex-shrink: 0;
+    }
+
+
+    @media (min-width: 640px) {
+      .property-card {
+        min-width: 340px;
+        max-width: 340px;
+        gap: 1.5rem;
+      }
+    }
+
+
+    @media (min-width: 768px) {
+      .property-card {
+        min-width: 380px;
+        max-width: 380px;
+        gap: 1.8rem;
+      }
+    }
+   
+    .property-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+   
+    .scroll-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--pink-primary);
+      color: white;
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 10;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      transition: 0.2s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      font-size: 1rem;
+    }
+
+
+    @media (min-width: 768px) {
+      .scroll-btn {
+        display: flex;
+        width: 44px;
+        height: 44px;
+        font-size: 1.2rem;
+      }
+    }
+   
+    .scroll-btn:hover {
+      background: var(--pink-dark);
+      transform: translateY(-50%) scale(1.05);
+    }
+   
+    .scroll-left {
+      left: -10px;
+    }
+
+
+    @media (min-width: 768px) {
+      .scroll-left {
+        left: -22px;
+      }
+    }
+   
+    .scroll-right {
+      right: -10px;
+    }
+
+
+    @media (min-width: 768px) {
+      .scroll-right {
+        right: -22px;
+      }
+    }
+   
+    .card-img-top {
+      height: 220px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+
+    @media (min-width: 640px) {
+      .card-img-top {
+        height: 250px;
+      }
+    }
+
+
+    @media (min-width: 768px) {
+      .card-img-top {
+        height: 280px;
+      }
+    }
+
+
+    .card-content {
+      padding: 1rem;
+    }
+
+
+    @media (min-width: 640px) {
+      .card-content {
+        padding: 1.2rem 1.4rem 1.4rem;
+      }
+    }
+
+
+    .property-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1e2a3a;
+      margin-bottom: 0.2rem;
+    }
+
+
+    @media (min-width: 640px) {
+      .property-name {
+        font-size: 1.3rem;
+      }
+    }
+
+
+    .property-tagline {
+      font-size: 0.75rem;
+      color: #7a6b74;
+      margin: 4px 0 8px;
+    }
+
+
+    @media (min-width: 640px) {
+      .property-tagline {
+        font-size: 0.85rem;
+      }
+    }
+
+
+    .feature-icons {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+      font-size: 0.7rem;
+      color: #5c5c5c;
+      flex-wrap: wrap;
+    }
+
+
+    @media (min-width: 640px) {
+      .feature-icons {
+        gap: 15px;
+        margin-top: 12px;
+        font-size: 0.8rem;
+      }
+    }
+
+
+    .explore-link {
+      margin-top: 10px;
+      font-size: 0.7rem;
+      color: var(--pink-dark);
+      font-weight: 500;
+    }
+
+
+    @media (min-width: 640px) {
+      .explore-link {
+        margin-top: 14px;
+        font-size: 0.8rem;
+      }
+    }
+
+
+    .booking-form-card {
+      background: white;
+      border-radius: 24px;
+      padding: 1.2rem;
+      margin: 1.5rem 0;
+      box-shadow: var(--shadow-card);
+      border: 1px solid var(--border-light);
+    }
+
+
+    @media (min-width: 640px) {
+      .booking-form-card {
+        padding: 1.8rem 2rem;
+        margin: 2rem 0;
+      }
+    }
+
+
+    .form-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin: 1rem 0;
+    }
+
+
+    @media (min-width: 640px) {
+      .form-grid {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin: 1.2rem 0 1rem;
+      }
+    }
+
+
+    .form-field {
+      flex: 1;
+      min-width: 100%;
+    }
+
+
+    @media (min-width: 640px) {
+      .form-field {
+        min-width: 160px;
+      }
+    }
+
+
+    .form-field label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #a26f87;
+    }
+
+
+    @media (min-width: 640px) {
+      .form-field label {
+        font-size: 0.7rem;
+      }
+    }
+
+
+    .form-field input, .form-field select {
+      width: 100%;
+      padding: 0.7rem;
+      border-radius: 14px;
+      border: 1px solid #ddd;
+      font-family: inherit;
+      margin-top: 4px;
+      font-size: 0.9rem;
+    }
+
+
+    @media (min-width: 640px) {
+      .form-field input, .form-field select {
+        padding: 0.8rem;
+      }
+    }
+
+
+    .extra-fee-warning {
+      background: #fff3cd;
+      border: 1px solid #ffeaa7;
+      border-radius: 12px;
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 0.8rem;
+      color: #856404;
+      display: none;
+    }
+
+
+    .extra-fee-warning.show {
+      display: block;
+    }
+
+
+    .book-btn {
+      background: var(--pink-primary);
+      color: white;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 40px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+      justify-content: center;
+    }
+
+
+    @media (min-width: 640px) {
+      .book-btn {
+        padding: 0.8rem 2rem;
+        font-size: 0.9rem;
+        width: auto;
+      }
+    }
+
+
+    .book-btn:hover {
+      background: var(--pink-dark);
+      transform: scale(0.98);
+    }
+
+
+    .host-section {
+      background: white;
+      border-radius: 24px;
+      padding: 1.2rem;
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+      text-align: center;
+      border: 1px solid var(--border-light);
+    }
+
+
+    @media (min-width: 640px) {
+      .host-section {
+        flex-direction: row;
+        padding: 1.8rem;
+        gap: 2rem;
+        text-align: left;
+      }
+    }
+
+
+    .host-avatar img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--pink-primary);
+    }
+
+
+    @media (min-width: 640px) {
+      .host-avatar img {
+        width: 100px;
+        height: 100px;
+      }
+    }
+
+
+    footer {
+      text-align: center;
+      margin-top: 1.5rem;
+      padding: 1rem;
+      font-size: 0.7rem;
+      color: #8b7b84;
+      border-top: 1px solid #e2e2e2;
+      background: rgba(255,255,255,0.9);
+      border-radius: 20px;
+    }
+
+
+    @media (min-width: 640px) {
+      footer {
+        margin-top: 2.5rem;
+        padding: 1.5rem;
+        font-size: 0.75rem;
+      }
+    }
+
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.85);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .modal.active { display: flex; }
+    .modal-content {
+      background: white;
+      max-width: 900px;
+      width: 100%;
+      max-height: 85vh;
+      border-radius: 28px;
+      overflow-y: auto;
+      padding: 1.2rem;
+      position: relative;
+    }
+
+
+    @media (min-width: 640px) {
+      .modal-content {
+        padding: 1.8rem;
+      }
+    }
+
+
+    .close-modal {
+      position: absolute; top: 12px; right: 16px;
+      background: var(--pink-primary);
+      border: none;
+      color: white;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+
+    @media (min-width: 640px) {
+      .close-modal {
+        width: 38px;
+        height: 38px;
+      }
+    }
+
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 10px;
+      margin-top: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+
+    @media (min-width: 640px) {
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 12px;
+      }
+    }
+
+
+    .gallery-grid img {
+      width: 100%;
+      border-radius: 16px;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .gallery-grid img:hover {
+      transform: scale(1.02);
+    }
+
+
+    .amenities-section {
+      background: var(--pink-light);
+      border-radius: 20px;
+      padding: 1rem;
+      margin-top: 0.5rem;
+    }
+
+
+    .amenities-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--pink-dark);
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+
+    .amenities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 8px;
+    }
+
+
+    .amenity-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: #4a4a4a;
+      padding: 4px 0;
+    }
+
+
+    .amenity-item i {
+      color: var(--pink-primary);
+      width: 20px;
+      font-size: 0.9rem;
+    }
+
+
+    .price-info {
+      background: #e8f4e8;
+      border-radius: 12px;
+      padding: 10px;
+      margin-bottom: 1rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+
+    .price-item {
+      text-align: center;
+      flex: 1;
+    }
+
+
+    .price-amount {
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--pink-dark);
+    }
+
+
+    .price-label {
+      font-size: 0.7rem;
+      color: #666;
+    }
+
+
+    .pax-limit {
+      display: inline-block;
+      background: var(--pink-soft);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--pink-dark);
+    }
+
+
+    .image-preview-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.95);
+      z-index: 3000;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+    .image-preview-modal.active {
+      display: flex;
+    }
+    .preview-image {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    }
+    .close-preview {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      background: none;
+      border: none;
+      z-index: 3001;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+ 
+  <div class="booking-header">
+    <div class="nav-bar">
+      <div class="logo-area">
+        <span class="logo-icon"><i class="fas fa-home"></i></span>
+        <span class="logo-text">las huertas staycation</span>
+      </div>
+      <div class="nav-links">
+        <span>✉️ Email: casaindustria888@gmail.com</span>
+        <span>📞 Contact: +63 964 895 4301</span>
+      </div>
+    </div>
+    <div class="hero-simple">
+      <h1>
+        <img src="https://i.imgur.com/qqnzmZa_d.jpeg?maxwidth=520&shape=thumb&fidelity=high" alt="Logo" class="hero-logo">
+        <span>FIND YOUR PERFECT STAYCATION</span>
+        <img src="https://i.imgur.com/qqnzmZa_d.jpeg?maxwidth=520&shape=thumb&fidelity=high" alt="Logo" class="hero-logo">
+      </h1>
+      <p>Clean · Safe · Reliable · Multiple units near Antipolo</p>
+    </div>
+  </div>
+
+
+  <div class="info-cards-row">
+    <div class="info-card">
+      <h3><i class="fas fa-clock"></i> Stay details</h3>
+      <div class="duration-chips">
+        <span class="chip">10 hours</span>
+        <span class="chip">12 hours</span>
+        <span class="chip">22 hours</span>
+      </div>
+      <p><i class="far fa-hourglass"></i> <strong>Regular check-in:</strong> 7:00 AM – 10:00 PM</p>
+      <div style="background: #fef5e8; border-radius: 16px; padding: 10px; margin-top: 12px; font-size: 0.8rem;">
+        ⚡ Early / late check-in subject to availability. Additional fees may apply.
+      </div>
+      <div style="margin-top: 12px; background: #fff1f5; padding: 10px; border-radius: 16px;">
+        🧹 FOR RESPONSIBLE GUESTS ONLY — peaceful, clean environment.
+      </div>
+    </div>
+    <div class="info-card">
+      <h3><i class="fas fa-bookmark"></i> How to book</h3>
+      <p>Send a message with these details:</p>
+      <ul style="margin: 10px 0 10px 18px; font-size: 0.85rem;">
+        <li>📅 Date (check-in)</li>
+        <li>⏱️ Stay duration (10h/12h/22h)</li>
+        <li>👥 No. of pax</li>
+        <li>⏰ Preferred check-in time</li>
+        <li>🏠 Preferred unit (optional)</li>
+      </ul>
+      <div style="background: #f7f7f7; border-radius: 16px; padding: 10px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px;">
+        <span><i class="fas fa-comment"></i> <strong>Reach out:</strong></span>
+        <a href="https://www.facebook.com/share/1BVrQ1RpcN/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; background: #e272a1; color: white; padding: 6px 16px; border-radius: 40px; text-decoration: none; font-size: 0.8rem; font-weight: 500; transition: 0.2s;">
+          <i class="fab fa-facebook-messenger"></i> Message on Facebook
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="section-title">
+    <i class="fas fa-building"></i>
+    <span>Our signature units</span>
+    <span style="font-size: 0.7rem; font-weight: normal;">✨ 7 unique stays · swipe →</span>
+  </div>
+ 
+  <div class="property-scroll-container">
+    <button class="scroll-btn scroll-left" id="scrollLeftBtn"><i class="fas fa-chevron-left"></i></button>
+    <div class="property-grid" id="unitsGrid"></div>
+    <button class="scroll-btn scroll-right" id="scrollRightBtn"><i class="fas fa-chevron-right"></i></button>
+  </div>
+
+
+  <div class="booking-form-card">
+    <h3 style="font-size: 1.3rem;">✍️ Request for booking</h3>
+    <p style="color: #b87292;">Fill the details, we'll reply within hours</p>
+    <form id="bookingForm">
+      <div class="form-grid">
+        <div class="form-field">
+          <label>CHECK-IN DATE</label>
+          <input type="date" id="bookingDate" required>
+        </div>
+        <div class="form-field">
+          <label>STAY DURATION</label>
+          <select id="duration" required>
+            <option value="">select</option>
+            <option value="10 hours">10 hours</option>
+            <option value="12 hours">12 hours</option>
+            <option value="22 hours">22 hours</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label>GUESTS (PAX) MAX 4</label>
+          <input type="number" id="pax" min="1" max="4" value="2" required>
+        </div>
+        <div class="form-field">
+          <label>CHECK-IN TIME</label>
+          <select id="checkinTime" required>
+            <option value="">Select time</option>
+            <option value="7:00 AM">7:00 AM</option>
+            <option value="8:00 AM">8:00 AM</option>
+            <option value="9:00 AM">9:00 AM</option>
+            <option value="10:00 AM">10:00 AM</option>
+            <option value="11:00 AM">11:00 AM</option>
+            <option value="12:00 PM">12:00 PM</option>
+            <option value="1:00 PM">1:00 PM</option>
+            <option value="2:00 PM">2:00 PM</option>
+            <option value="3:00 PM">3:00 PM</option>
+            <option value="4:00 PM">4:00 PM</option>
+            <option value="5:00 PM">5:00 PM</option>
+            <option value="6:00 PM">6:00 PM</option>
+            <option value="7:00 PM">7:00 PM</option>
+            <option value="8:00 PM">8:00 PM</option>
+            <option value="9:00 PM">9:00 PM</option>
+            <option value="10:00 PM">10:00 PM</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label>PREFERRED UNIT</label>
+          <select id="unit">
+            <option value="">Any available unit</option>
+            <option value="CASA ALLEGRO">CASA ALLEGRO - Maximalist design</option>
+            <option value="CASA FINO">CASA FINO - Luxurious elegance</option>
+            <option value="CASA MARINO">CASA MARINO - Coastal vibes</option>
+            <option value="CASA VICTORIA">CASA VICTORIA - Vintage vibes</option>
+            <option value="CASA SEMPLICITA">CASA SEMPLICITA - Serene simplicity</option>
+            <option value="CASA MACHO">CASA MACHO - Retro style</option>
+            <option value="CASA INDUSTRIA">CASA INDUSTRIA - Warm home stay</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label>CONTACT NUMBER</label>
+          <input type="tel" id="guestContact" placeholder="+63 912 345 6789">
+        </div>
+        <div class="form-field">
+          <label>YOUR NAME</label>
+          <input type="text" id="guestName" placeholder="Name">
+        </div>
+      </div>
+      <div id="extraFeeWarning" class="extra-fee-warning">
+        ⚠️ Extra ₱250 charge applies per guest exceeding 3 guests! (Additional ₱250 each for 4th guest)
+      </div>
+      <button type="submit" class="book-btn"><i class="fas fa-envelope"></i> Send booking request</button>
+      <div id="successMessage" style="margin-top: 12px; display: none; background:#e0f0da; padding: 8px; border-radius: 20px;"></div>
+    </form>
+  </div>
+
+
+  <div class="host-section">
+    <div class="host-avatar">
+      <img src="https://i.imgur.com/2NeJapk.jpeg" alt="Mary Sunshine Huertas">
+    </div>
+    <div style="flex:1">
+      <h3 style="color: var(--pink-dark);">Hosted by Mary Sunshine Huertas</h3>
+      <p style="font-style: italic;">"Her main goal is to ensure that each and every one of her guests has an enjoyable stay, but she is equally committed to ensuring that each client feels safe and at home as soon as they step through her door."</p>
+      <p style="margin-top: 8px;"><strong>Owner of Las Huertas Staycation</strong></p>
+    </div>
+  </div>
+
+
+  <footer>
+    🌸 Las Huertas Staycation — Clean. Safe. Reliable. Multiple units.<br>
+    📍 102 Plaza Condominium, near LRT2 Antipolo / SM Masinag · For responsible guests only.<br>
+  </footer>
+</div>
+
+
+<div id="unitModal" class="modal">
+  <div class="modal-content">
+    <button class="close-modal" id="closeBtn">✕</button>
+    <h2 id="modalTitle" style="color: #c73e6f;"></h2>
+    <p id="modalDesc" style="margin: 10px 0;"></p>
+    <div id="priceInfoContainer" class="price-info"></div>
+    <div id="modalGallery" class="gallery-grid"></div>
+    <div id="amenitiesContainer" class="amenities-section"></div>
+  </div>
+</div>
+
+
+<div id="imagePreviewModal" class="image-preview-modal">
+  <button class="close-preview">&times;</button>
+  <img class="preview-image" id="previewImage" alt="Zoomed view">
+</div>
+
+
+<script>
+ 
+  const amenitiesData = {
+    "CASA INDUSTRIA": {
+      price22: "₱2,800",
+      price12: "₱1,800",
+      paxLimit: "2 pax only",
+      bedrooms: "2 bedrooms",
+      amenities: ["Bathroom & Shower", "Kitchen, Utensils and Appliances", "Wi-Fi", "Air conditioning", "Refrigerator", "Fresh linens and towels", "Workspace or desk area", "Dining Table", "TV, Speaker and Playstation", "Playing Cards"]
+    },
+    "CASA SEMPLICITA": {
+      price22: "₱2,800",
+      price12: "₱1,800",
+      paxLimit: "2 pax only",
+      bedrooms: "1 bedroom",
+      amenities: ["Bathroom & Shower", "Kitchen, Utensils and Appliances", "Wi-Fi", "Air conditioning", "Mini Fridge", "Fresh linens and towels", "Workspace or desk area", "Dining Table", "TV & Speaker", "Playing Cards"]
+    },
+    "CASA ALLEGRO": {
+      price22: "₱2,800",
+      price12: "₱1,800",
+      paxLimit: "2 pax only",
+      bedrooms: "1 bedroom",
+      amenities: ["Bathroom & Shower", "Kitchen, Utensils and Appliances", "Wi-Fi", "Air conditioning", "Drinking Tower", "Mini Billiard Pool", "Fresh linens and towels", "TV & Speaker", "Playing Cards"]
+    },
+    "CASA MACHO": {
+      price22: "₱2,800",
+      price12: "₱1,800",
+      paxLimit: "2 pax only",
+      bedrooms: "1 bedroom",
+      amenities: ["Bathroom & Shower", "Kitchen, Utensils and Appliances", "Wi-Fi", "Air conditioning", "Dining Table", "Mini Fridge", "Mini Billiard Pool", "Fresh linens and towels", "TV & Speaker", "Playing Cards"]
+    },
+    "CASA FINO": {
+      price22: "₱2,800",
+      price12: "₱1,800",
+      paxLimit: "2 pax only",
+      bedrooms: "1 bedroom",
+      amenities: ["Bathroom & Shower", "Kitchen, Utensils and Appliances", "Wi-Fi", "Air conditioning", "Mini Fridge", "Fresh linens and towels", "Workspace or desk area", "TV, Speaker and Playstation", "Playing Cards"]
+    },
+    "CASA MARINO": {
+      price22: "₱2,800",
+      price12: "₱1,800",
+      paxLimit: "2 pax only",
+      bedrooms: "2 bedrooms",
+      amenities: ["Bathroom & Shower", "Kitchen, Utensils and Appliances", "Wi-Fi", "Air conditioning", "Mini Fridge", "Fresh linens and towels", "Workspace or desk area", "TV, Speaker and Playstation", "Playing Cards"]
+    },
+    "CASA VICTORIA": {
+      price22: "₱2,800",
+      price12: "₱1,800",
+      paxLimit: "2 pax only",
+      bedrooms: "1 bedroom",
+      amenities: ["Bathroom & Shower", "Kitchen, Utensils and Appliances", "Wi-Fi", "Air conditioning", "Refrigerator", "Fresh linens and towels", "Dining Table", "TV & Speaker", "Playing Cards"]
+    }
+  };
+
+
+  const unitsData = [
+    { name: "CASA ALLEGRO", tagline: "Maximalist design · dim-energy vibes", img: "https://i.imgur.com/EcHQjEv.jpeg", desc: "Perfect for hang-out, partying indoors and drinking night. Maximalist design with dim-energy vibes for unforgettable nights.", gallery: ["https://i.imgur.com/OROD0ef.jpeg", "https://i.imgur.com/AvgrOAU.jpeg", "https://i.imgur.com/d3Ymp9G.jpeg", "https://i.imgur.com/rPv9l2r.jpeg", "https://i.imgur.com/THXPcB2.jpeg", "https://i.imgur.com/5fGLmpp.jpeg"] },
+    { name: "CASA FINO", tagline: "Luxurious elegance · clean minimalist style", img: "https://i.imgur.com/t0VpaF3.jpeg", desc: "Best for comfort and relaxation with a hint of clean modern and minimalist style. Luxurious elegance at its finest.", gallery: ["https://i.imgur.com/b7taICn.jpeg", "https://i.imgur.com/4zL92tk.jpeg", "https://i.imgur.com/hvPOr3n.jpeg", "https://i.imgur.com/UkzYv6h.jpeg", "https://i.imgur.com/srXhXZ8.jpeg", "https://i.imgur.com/YTHu4gw.jpeg"] },
+    { name: "CASA MARINO", tagline: "Coastal vibes · nautical ambience", img: "https://i.imgur.com/2vah7yR.jpeg", desc: "Deep sea and long travel inside a yacht experience. A combination of comfort and nautical ambience for coastal relaxation.", gallery: ["https://i.imgur.com/u39Mav3.jpeg", "https://i.imgur.com/KMnwhN4.jpeg", "https://i.imgur.com/PjDb3AI.jpeg", "https://i.imgur.com/yhTcOvO.jpeg", "https://i.imgur.com/H1E3lqt.jpeg", "https://i.imgur.com/oPV0FJJ.jpeg"] },
+    { name: "CASA VICTORIA", tagline: "Vintage vibes · golden elegance", img: "https://i.imgur.com/ssZB2mV.jpeg", desc: "Golden furnitures with a blended classic and elegance. Vintage vibes for timeless romantic stays.", gallery: ["https://i.imgur.com/PSGV8Fw.jpeg", "https://i.imgur.com/2jAPhAH.jpeg", "https://i.imgur.com/HOZSj7y.jpeg", "https://i.imgur.com/uYZwbPq.jpeg", "https://i.imgur.com/Gd1yO8n.jpeg", "https://i.imgur.com/XconByC.jpeg"] },
+    { name: "CASA SEMPLICITA", tagline: "Serene simplicity · warm wooden style", img: "https://i.imgur.com/76qTWJu.jpeg", desc: "The comfort of simplicity and a serene warm vibes with wooden style and plants in a minimalist design.", gallery: ["https://i.imgur.com/WJ1ejZ6.jpeg", "https://i.imgur.com/6gKy3g0.jpeg", "https://i.imgur.com/Shna3Nw.jpeg", "https://i.imgur.com/H16sgDP.jpeg", "https://i.imgur.com/QPdAjhf.jpeg", "https://i.imgur.com/PYwnqL8.jpeg"] },
+    { name: "CASA MACHO", tagline: "Retro style · barcade design", img: "https://i.imgur.com/HzKKL2w.jpeg", desc: "Encaptures retro style with a barcade design best for playing while staying indoors. Gaming and relaxation combined.", gallery: ["https://i.imgur.com/8YjiG0J.jpeg", "https://i.imgur.com/XkSyJFC.jpeg", "https://i.imgur.com/zauNWd3.jpeg", "https://i.imgur.com/UBOQRxy.jpeg", "https://i.imgur.com/BC0sFk7.jpeg", "https://i.imgur.com/Abvk35e.jpeg"] },
+    { name: "CASA INDUSTRIA", tagline: "Warm home stay · stylish comfort", img: "https://i.imgur.com/HQrA8Xq.jpeg", desc: "Inviting warm home stay perfect for travelers blending relaxation and comfort in a stylish room.", gallery: ["https://i.imgur.com/SQD417Z.jpeg", "https://i.imgur.com/rhfpRxl.jpeg", "https://i.imgur.com/mKCpJVv.jpeg", "https://i.imgur.com/mdI4sLY.jpeg", "https://i.imgur.com/s4ESg2D.jpeg", "https://i.imgur.com/RneIG6Y.jpeg"] }
+  ];
+
+
+  function renderPropertyCards() {
+    const grid = document.getElementById('unitsGrid');
+    if (!grid) return;
+    grid.innerHTML = '';
+    unitsData.forEach(unit => {
+      const card = document.createElement('div');
+      card.className = 'property-card';
+      card.innerHTML = `
+        <div class="card-img-top" style="background-image: url('${unit.img}');"></div>
+        <div class="card-content">
+          <div class="property-name">${unit.name}</div>
+          <div class="property-tagline">${unit.tagline}</div>
+          <div class="feature-icons">
+            <span><i class="fas fa-wind"></i> A/C</span>
+            <span><i class="fas fa-wifi"></i> Fast WiFi</span>
+            <span><i class="fas fa-tv"></i> Smart TV</span>
+          </div>
+          <div class="explore-link"><i class="fas fa-camera"></i> Click to explore gallery →</div>
+        </div>
+      `;
+      card.onclick = () => openModal(unit);
+      grid.appendChild(card);
+    });
+  }
+
+
+  function openModal(unit) {
+    document.getElementById('modalTitle').innerText = unit.name;
+    document.getElementById('modalDesc').innerText = unit.desc;
+   
+    const amenities = amenitiesData[unit.name];
+    const priceContainer = document.getElementById('priceInfoContainer');
+    if (amenities) {
+      priceContainer.innerHTML = `
+        <div class="price-item">
+          <div class="price-amount">${amenities.price22}</div>
+          <div class="price-label">22 hours stay</div>
+        </div>
+        <div class="price-item">
+          <div class="price-amount">${amenities.price12}</div>
+          <div class="price-label">12 hours stay</div>
+        </div>
+        <div class="price-item">
+          <div class="price-amount">${amenities.paxLimit}</div>
+          <div class="price-label">Maximum capacity</div>
+        </div>
+        <div class="price-item">
+          <div class="price-amount">${amenities.bedrooms}</div>
+          <div class="price-label">Bedrooms</div>
+        </div>
+      `;
+     
+      const amenitiesContainer = document.getElementById('amenitiesContainer');
+      amenitiesContainer.innerHTML = `
+        <div class="amenities-title">
+          <i class="fas fa-concierge-bell"></i>
+          <span>Amenities & Features</span>
+        </div>
+        <div class="amenities-grid">
+          ${amenities.amenities.map(item => `<div class="amenity-item"><i class="fas fa-check-circle"></i> ${item}</div>`).join('')}
+        </div>
+      `;
+    } else {
+      priceContainer.innerHTML = `<div class="price-item">Contact host for pricing</div>`;
+      document.getElementById('amenitiesContainer').innerHTML = `<div class="amenities-title"><i class="fas fa-info-circle"></i> Contact host for amenities</div>`;
+    }
+   
+    const gal = document.getElementById('modalGallery');
+    gal.innerHTML = '';
+    unit.gallery.forEach(url => {
+      const img = document.createElement('img');
+      img.src = url;
+      img.style.cursor = 'pointer';
+      img.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openImagePreview(url);
+      });
+      gal.appendChild(img);
+    });
+    document.getElementById('unitModal').classList.add('active');
+  }
+
+
+  function openImagePreview(imageUrl) {
+    const previewModal = document.getElementById('imagePreviewModal');
+    const previewImg = document.getElementById('previewImage');
+    previewImg.src = imageUrl;
+    previewModal.classList.add('active');
+  }
+
+
+  function closeImagePreview() {
+    const previewModal = document.getElementById('imagePreviewModal');
+    previewModal.classList.remove('active');
+    const previewImg = document.getElementById('previewImage');
+    previewImg.src = '';
+  }
+
+
+  document.getElementById('closeBtn').onclick = () => document.getElementById('unitModal').classList.remove('active');
+  window.onclick = (e) => {
+    if (e.target === document.getElementById('unitModal')) document.getElementById('unitModal').classList.remove('active');
+    if (e.target === document.getElementById('imagePreviewModal')) closeImagePreview();
+  };
+ 
+  const closePreviewBtn = document.querySelector('.close-preview');
+  if (closePreviewBtn) {
+    closePreviewBtn.onclick = closeImagePreview;
+  }
+
+
+  const scrollContainer = document.getElementById('unitsGrid');
+  const scrollLeftBtn = document.getElementById('scrollLeftBtn');
+  const scrollRightBtn = document.getElementById('scrollRightBtn');
+ 
+  if (scrollLeftBtn && scrollRightBtn && scrollContainer) {
+    scrollLeftBtn.addEventListener('click', () => {
+      scrollContainer.scrollBy({ left: -320, behavior: 'smooth' });
+    });
+   
+    scrollRightBtn.addEventListener('click', () => {
+      scrollContainer.scrollBy({ left: 320, behavior: 'smooth' });
+    });
+  }
+ 
+ 
+  const paxInput = document.getElementById('pax');
+  const extraFeeWarning = document.getElementById('extraFeeWarning');
+ 
+  if (paxInput) {
+    const enforcePaxLimit = () => {
+      let val = parseInt(paxInput.value, 10);
+      if (isNaN(val)) {
+        paxInput.value = 1;
+        val = 1;
+      }
+     
+      if (val > 4) {
+        paxInput.value = 4;
+        val = 4;
+      }
+      if (val < 1) {
+        paxInput.value = 1;
+        val = 1;
+      }
+     
+      if (val >= 3) {
+        extraFeeWarning.classList.add('show');
+      } else {
+        extraFeeWarning.classList.remove('show');
+      }
+    };
+   
+    paxInput.addEventListener('input', function(e) {
+      let raw = e.target.value;
+      if (raw === '') return;
+      let num = parseInt(raw, 10);
+      if (!isNaN(num)) {
+        if (num > 4) {
+          paxInput.value = 4;
+        }
+        if (num < 1 && raw !== '') {
+          paxInput.value = 1;
+        }
+        enforcePaxLimit();
+      }
+    });
+   
+    paxInput.addEventListener('blur', () => {
+      enforcePaxLimit();
+    });
+   
+    paxInput.addEventListener('change', enforcePaxLimit);
+    enforcePaxLimit();
+  }
+
+
+  function formatPhoneNumber(input) {
+    let value = input.value.replace(/\D/g, '');
+    if (value.length === 0) {
+      input.value = '';
+      return;
+    }
+    if (value.length <= 3) {
+      input.value = value;
+    } else if (value.length <= 6) {
+      input.value = value.slice(0, 3) + ' ' + value.slice(3);
+    } else if (value.length <= 10) {
+      input.value = value.slice(0, 3) + ' ' + value.slice(3, 6) + ' ' + value.slice(6);
+    } else {
+      input.value = value.slice(0, 3) + ' ' + value.slice(3, 6) + ' ' + value.slice(6, 10);
+    }
+  }
+
+
+  const contactInput = document.getElementById('guestContact');
+  if (contactInput) {
+    contactInput.addEventListener('input', function(e) {
+      formatPhoneNumber(this);
+    });
+  }
+
+
+  function resetFormToDefault() {
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    const yyyy = tomorrow.getFullYear();
+    const mm = String(tomorrow.getMonth() + 1).padStart(2, '0');
+    const dd = String(tomorrow.getDate()).padStart(2, '0');
+    document.getElementById('bookingDate').value = `${yyyy}-${mm}-${dd}`;
+    document.getElementById('duration').value = '';
+    document.getElementById('pax').value = '2';
+    document.getElementById('checkinTime').value = '';
+    document.getElementById('unit').value = '';
+    document.getElementById('guestContact').value = '';
+    document.getElementById('guestName').value = '';
+    extraFeeWarning.classList.remove('show');
+  }
+
+
+  function hideSuccessMessage() {
+    const successDiv = document.getElementById('successMessage');
+    successDiv.style.display = 'none';
+    successDiv.innerHTML = '';
+  }
+
+
+  const formFields = ['bookingDate', 'duration', 'pax', 'checkinTime', 'unit', 'guestContact', 'guestName'];
+  formFields.forEach(fieldId => {
+    const field = document.getElementById(fieldId);
+    if (field) {
+      field.addEventListener('input', hideSuccessMessage);
+      field.addEventListener('change', hideSuccessMessage);
+    }
+  });
+
+
+ 
+  (function() {
+    const form = document.getElementById('bookingForm');
+    const successDiv = document.getElementById('successMessage');
+   
+    function formatDate(dateString) {
+      if (!dateString) return 'Not specified';
+      const parts = dateString.split('-');
+      if (parts.length !== 3) return dateString;
+      const dateObj = new Date(dateString);
+      return dateObj.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    }
+   
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+     
+     
+      let paxVal = parseInt(paxInput.value, 10);
+      if (isNaN(paxVal)) paxVal = 2;
+      if (paxVal < 1) paxVal = 1;
+      if (paxVal > 4) paxVal = 4;
+      paxInput.value = paxVal;
+     
+      let extraFeeText = '';
+     
+      if (paxVal >= 3) {
+        let extraCount = paxVal - 2;  
+        let totalFee = extraCount * 250;
+        extraFeeText = `\n⚠️ Extra ₱250 charge per additional guest beyond 2 (${extraCount} extra guest(s) = ₱${totalFee} total)`;
+      }
+     
+      const dateRaw = document.getElementById('bookingDate').value;
+      const duration = document.getElementById('duration').value;
+      const checkinTime = document.getElementById('checkinTime').value;
+      const unitSelect = document.getElementById('unit');
+      const unit = unitSelect.options[unitSelect.selectedIndex]?.text || 'Any available unit';
+      const guestContact = document.getElementById('guestContact').value.trim();
+      const guestName = document.getElementById('guestName').value.trim();
+     
+      if (!dateRaw || !duration || !checkinTime) {
+        alert('Please fill all required fields (date, duration, check-in time).');
+        return;
+      }
+     
+      const formattedDate = formatDate(dateRaw);
+      const subject = `Booking Request - Las Huertas Staycation - ${formattedDate}`;
+      let body = `NEW BOOKING REQUEST - Las Huertas Staycation\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n📅 Date: ${formattedDate}\n⏱️ Stay duration: ${duration}\n👥 No. of pax: ${paxVal}${extraFeeText}\n⏰ Preferred check-in time: ${checkinTime}\n🏠 Preferred unit: ${unit}\n📞 Contact: ${guestContact ? guestContact : 'Not provided'}\n🧑 Guest name: ${guestName ? guestName : 'Not provided'}\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n✨ FOR RESPONSIBLE GUESTS ONLY ✨\n\nPlease confirm availability.\n\n📍 Location: 102 Plaza Condominium, near LRT2 Antipolo / SM Masinag\n\nThank you!`;
+     
+      window.location.href = `mailto:casaindustria888@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+     
+      successDiv.style.display = 'block';
+      successDiv.innerHTML = '✅ Booking request sent! The form has been reset for your next booking.';
+      successDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+     
+      resetFormToDefault();
+    });
+   
+    const dateInput = document.getElementById('bookingDate');
+    if (dateInput) {
+      const today = new Date();
+      const yyyy = today.getFullYear();
+      const mm = String(today.getMonth() + 1).padStart(2, '0');
+      const dd = String(today.getDate()).padStart(2, '0');
+      dateInput.min = `${yyyy}-${mm}-${dd}`;
+      const tomorrow = new Date(today);
+      tomorrow.setDate(today.getDate() + 1);
+      const yyyy2 = tomorrow.getFullYear();
+      const mm2 = String(tomorrow.getMonth() + 1).padStart(2, '0');
+      const dd2 = String(tomorrow.getDate()).padStart(2, '0');
+      dateInput.value = `${yyyy2}-${mm2}-${dd2}`;
+    }
+  })();
+
+
+  renderPropertyCards();
+</script>
+</body>
+</html>
+
