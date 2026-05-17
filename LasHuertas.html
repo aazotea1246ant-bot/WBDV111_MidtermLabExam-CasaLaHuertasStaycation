@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Las Huertas Staycation · Information</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Eagle+Lake&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: url('https://i.imgur.com/YUlPpOB.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #1a1e24;
+      line-height: 1.5;
+      position: relative;
+      min-height: 100vh;
+    }
+    .page-wrapper {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 70px;
+      position: relative;
+      z-index: 1;
+    }
+    @media (max-width: 768px) {
+      .page-wrapper {
+        padding: 0 25px;
+      }
+    }
+    :root {
+      --WHITE: #ffffff;
+      --pink-soft: #ffffff;
+      --pink-light: #fff1f5;
+      --border-light: #e6e6e6;
+      --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.05);
+      --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+    .container, .booking-header, .nav-bar, .hero-simple, .host-section, footer,
+    .about-section, .faqs-section, .safety-section {
+      border-radius: 0px !important;
+    }
+    img, button, input, select, textarea, a {
+      border-radius: 0px !important;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+    @media (min-width: 640px) {
+      .container {
+        padding: 1rem 1.5rem 2rem;
+      }
+    }
+    .booking-header {
+      background: rgba(20, 20, 20, 0.85);
+      backdrop-filter: blur(8px);
+      box-shadow: var(--shadow-card);
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(255,105,180,0.3);
+      overflow: hidden;
+      z-index: 1;
+    }
+    .nav-bar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem;
+      gap: 0.8rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      position: sticky;
+      top: 0;
+      background: rgba(20, 20, 20, 0.95);
+      z-index: 1000;
+    }
+    @media (min-width: 640px) {
+      .nav-bar {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1rem 2rem;
+      }
+    }
+    .logo-area {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+    .logo-icon {
+      background: #ffffff;
+      width: 36px;
+      height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2rem;
+    }
+    .logo-text {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #ffffff;
+      letter-spacing: -0.3px;
+    }
+    @media (min-width: 640px) {
+      .logo-text {
+        font-size: 1.3rem;
+      }
+    }
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      color: #e0e0e0;
+      text-align: center;
+    }
+    @media (min-width: 640px) {
+      .nav-links {
+        flex-direction: row;
+        gap: 1.5rem;
+        font-size: 0.85rem;
+      }
+    }
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+    }
+    .nav-links a:hover {
+      color: #ffffff;
+    }
+    .hero-simple {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(4px);
+      padding: 1.5rem 1rem;
+      text-align: center;
+      border-top: 3px solid #ff69b4;
+    }
+    @media (min-width: 640px) {
+      .hero-simple {
+        padding: 2rem;
+      }
+    }
+    .hero-simple h1 {
+      font-size: clamp(1.5rem, 8vw, 10rem);
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      text-shadow: none;
+    }
+    .hero-simple h1 span {
+      font-family: 'Great Vibes', cursive;
+      font-weight: 400;
+      text-transform: none;
+      font-size: clamp(1rem, 4vw, 5rem);
+    }
+    @media (max-width: 640px) {
+      .hero-simple h1 {
+        font-size: 1.8rem;
+        gap: 0.5rem;
+      }
+      .hero-simple h1 span {
+        font-size: 1.2rem;
+      }
+    }
+    .hero-logo {
+      width: clamp(30px, 8vw, 85px);
+      height: clamp(30px, 8vw, 85px);
+      object-fit: cover;
+      border: 3px solid #ffffff;
+      border-radius: 50% !important;
+      loading: lazy;
+    }
+    @media (max-width: 640px) {
+      .hero-logo:first-child {
+        display: none;
+      }
+      .hero-logo:last-child {
+        display: inline-block;
+        width: clamp(25px, 6vw, 35px);
+        height: clamp(25px, 6vw, 35px);
+      }
+    }
+    .section-title-wrapper {
+      position: relative;
+      margin: 1.5rem 0 1rem;
+      display: inline-block;
+      width: auto;
+    }
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      background: #000000;
+      padding: 12px 24px;
+      color: white;
+      width: auto;
+    }
+    .section-title span:first-of-type {
+      font-family: 'Eagle Lake', cursive;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .section-title i {
+      color: #ffffff;
+    }
+    @media (min-width: 640px) {
+      .section-title {
+        font-size: 1.5rem;
+        padding: 14px 28px;
+      }
+    }
+    .about-section, .faqs-section, .safety-section {
+      background: #1a1a1a;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(255,105,180,0.3);
+      color: #e0e0e0;
+    }
+    .about-content, .faqs-content, .safety-content {
+      margin-top: 1rem;
+    }
+    .about-text p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+    .faq-item {
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid rgba(255,105,180,0.2);
+    }
+    .faq-question {
+      font-family: 'Eagle Lake', cursive;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .faq-answer {
+      font-size: 0.9rem;
+      color: #cccccc;
+      padding-left: 1.8rem;
+    }
+    .safety-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    .safety-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 0.8rem;
+      background: #2a2a2a;
+    }
+    .safety-item i {
+      color: #ffffff;
+      font-size: 1.1rem;
+    }
+    .safety-item strong {
+      color: #ffffff;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .safety-item span {
+      font-size: 0.8rem;
+      color: #cccccc;
+    }
+    .host-section {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      padding: 1.2rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+      text-align: center;
+      border: 1px solid rgba(255,105,180,0.3);
+      width: 100%;
+      color: #1a1a1a;
+    }
+    @media (min-width: 640px) {
+      .host-section {
+        flex-direction: row;
+        padding: 1.8rem;
+        gap: 2rem;
+        text-align: left;
+      }
+    }
+    .host-section h3 {
+      font-family: 'Eagle Lake', cursive;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 1.2rem;
+      color: #1a1a1a;
+    }
+    .host-avatar img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border: 3px solid #ff69b4;
+      border-radius: 50% !important;
+      loading: lazy;
+    }
+    @media (min-width: 640px) {
+      .host-avatar img {
+        width: 100px;
+        height: 100px;
+      }
+    }
+    .footer-wrapper {
+      margin-top: 0.5rem;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.7rem;
+      background: rgba(20, 20, 20, 0.85);
+      backdrop-filter: blur(8px);
+      color: #e0e0e0;
+      border: 1px solid rgba(255,105,180,0.3);
+    }
+    @media (min-width: 640px) {
+      footer {
+        padding: 1.5rem;
+        font-size: 0.75rem;
+      }
+    }
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #ff69b4;
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50% !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 999;
+      border: none;
+      font-size: 1.2rem;
+    }
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    .back-to-top:hover {
+      background: #ff1493;
+      transform: scale(1.1);
+    }
+    .search-bar {
+      margin-bottom: 1.5rem;
+    }
+    .search-input {
+      width: 100%;
+      padding: 0.8rem;
+      background: #2a2a2a;
+      border: 1px solid rgba(255,105,180,0.3);
+      color: white;
+      font-size: 0.9rem;
+    }
+    .search-input::placeholder {
+      color: #999;
+    }
+    .no-results {
+      text-align: center;
+      padding: 2rem;
+      color: #cccccc;
+      display: none;
+    }
+    .faq-item.hide-faq {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+
+<div class="booking-header">
+  <div class="nav-bar">
+    <div class="logo-area">
+      <span class="logo-icon"><i class="fas fa-home"></i></span>
+      <span class="logo-text">las huertas staycation</span>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">⬩➤ Book Now</a>
+      <a href="info.html" style="color: #ff69b4;">⬩➤ Information</a>
+      <span>⬩➤ Email: casaindustria888@gmail.com</span>
+      <span>⬩➤ Contact: +63 964 895 4301</span>
+    </div>
+  </div>
+  <div class="hero-simple">
+    <h1>
+      <img src="https://i.imgur.com/9MFVaHF.png" alt="Logo" class="hero-logo" loading="lazy">
+      <span>About Las Huertas</span>
+      <img src="https://i.imgur.com/9MFVaHF.png" alt="Logo" class="hero-logo" loading="lazy">
+    </h1>
+  </div>
+</div>
+
+
+<div class="page-wrapper">
+  <div class="container">
+
+
+    <div class="search-bar">
+      <input type="text" id="faqSearch" class="search-input" placeholder="⋆˙⟡ Search FAQs... (type keywords like 'check-in', 'cancellation', 'payment')">
+    </div>
+
+
+    <div class="about-section">
+      <div class="section-title-wrapper">
+        <div class="section-title">
+          <i class="fas fa-home"></i>
+          <span>About Us</span>
+        </div>
+      </div>
+      <div class="about-content">
+        <div class="about-text">
+          <p>Welcome to <strong>Las Huertas Staycation</strong> — where every stay is designed to feel like home, but with a touch of luxury and personality. Our name "Las Huertas" reflects warmth, abundance, and the feeling of a private garden escape right in the heart of Antipolo.</p>
+          <p>What started as a passion for creating unique spaces has grown into a collection of 7 signature units, each with its own distinct mood and character. From the maximalist energy of <strong>CASA ALLEGRO</strong> to the serene simplicity of <strong>CASA SEMPLICITA</strong>, we've curated every detail to match your vibe.</p>
+          <p>Located just minutes from LRT2 Antipolo and SM Masinag, we offer the perfect balance of accessibility and tranquility.</p>
+          <p>⋆˙⟡<strong>Our promise:</strong> Clean, safe, reliable, and unforgettable stays.</p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="faqs-section">
+      <div class="section-title-wrapper">
+        <div class="section-title">
+          <i class="fas fa-question-circle"></i>
+          <span>Frequently Asked Questions</span>
+        </div>
+      </div>
+      <div class="faqs-content">
+        <div class="faq-item">
+          <div class="faq-question"><i class="fas fa-clock"></i><span>What are your check-in and check-out times?</span></div>
+          <div class="faq-answer">Regular check-in is from 7:00 AM to 10:00 PM. Early or late check-in may be available upon request, subject to additional fees.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question"><i class="fas fa-tag"></i><span>How much is the damage deposit?</span></div>
+          <div class="faq-answer">A deposit of ₱1,000 is required upon booking. This becomes non-refundable upon cancellation.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question"><i class="fas fa-users"></i><span>What's the maximum number of guests per unit?</span></div>
+          <div class="faq-answer">Each unit has a maximum capacity of 4 guests. Extra charges apply for groups of 3 or more (₱250 per additional guest beyond 2).</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question"><i class="fas fa-volume-off"></i><span>Is there a noise curfew?</span></div>
+          <div class="faq-answer">Yes, please keep noise levels down from 10:00 PM onwards to respect our neighbors and other guests.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question"><i class="fas fa-wifi"></i><span>Do you offer WiFi and parking?</span></div>
+          <div class="faq-answer">Yes! All units come with high-speed WiFi. Parking is available on a first-come, first-served basis.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question"><i class="fas fa-ban"></i><span>What's your cancellation policy?</span></div>
+          <div class="faq-answer">Cancellations incur a ₱1,000 non-refundable fee. Please review our cancellation policy before booking.</div>
+        </div>
+      </div>
+      <div id="noResults" class="no-results">No matching FAQs found. Try different keywords.</div>
+    </div>
+
+
+    <div class="safety-section">
+      <div class="section-title-wrapper">
+        <div class="section-title">
+          <i class="fas fa-shield-alt"></i>
+          <span>Safety & Guest Policies</span>
+        </div>
+      </div>
+      <div class="safety-content">
+        <div class="safety-grid">
+          <div class="safety-item"><i class="fas fa-hand-sparkles"></i><div><strong>Sanitization Protocol</strong><span>Rooms are thoroughly cleaned and sanitized within 1 hour after each check-out.</span></div></div>
+          <div class="safety-item"><i class="fas fa-cctv"></i><div><strong>24/7 Security</strong><span>CCTV cameras are installed in common areas for your safety.</span></div></div>
+          <div class="safety-item"><i class="fas fa-fire-extinguisher"></i><div><strong>Fire Safety</strong><span>Fire extinguishers and emergency exits are clearly marked in all units.</span></div></div>
+          <div class="safety-item"><i class="fas fa-trash-alt"></i><div><strong>Waste Disposal</strong><span>Trash collection is scheduled at 9:00 AM and 2:00 PM daily.</span></div></div>
+          <div class="safety-item"><i class="fas fa-exclamation-triangle"></i><div><strong>Liability</strong><span>Guests are responsible for any broken or damaged items during their stay.</span></div></div>
+          <div class="safety-item"><i class="fas fa-smoking-ban"></i><div><strong>Smoking Policy</strong><span>Smoking is strictly prohibited inside the units. Designated outdoor areas available.</span></div></div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="host-section">
+      <div class="host-avatar">
+        <img src="https://i.imgur.com/2NeJapk.jpeg" alt="Mary Sunshine Huertas" loading="lazy">
+      </div>
+      <div style="flex:1">
+        <h3>Hosted by Mary Sunshine Huertas</h3>
+        <p style="font-style: italic;">"Her main goal is to ensure that each and every one of her guests has an enjoyable stay, but she is equally committed to ensuring that each client feels safe and at home as soon as they step through her door."</p>
+        <p style="margin-top: 8px;"><strong>Owner of Las Huertas Staycation</strong></p>
+      </div>
+    </div>
+
+
+    <div class="footer-wrapper">
+      <footer>
+        Las Huertas Staycation — Clean. Safe. Reliable. Multiple units.<br>
+        102 Plaza Condominium, near LRT2 Antipolo / SM Masinag
+      </footer>
+    </div>
+  </div>
+</div>
+
+
+<button class="back-to-top" id="backToTopBtn"><i class="fas fa-arrow-up"></i></button>
+
+
+<script>
+  const backToTopBtn = document.getElementById('backToTopBtn');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 300) {
+      backToTopBtn.classList.add('show');
+    } else {
+      backToTopBtn.classList.remove('show');
+    }
+  });
+  backToTopBtn.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+
+  const searchInput = document.getElementById('faqSearch');
+  const faqItems = document.querySelectorAll('.faq-item');
+  const noResults = document.getElementById('noResults');
+ 
+  function searchFAQs() {
+    const searchTerm = searchInput.value.toLowerCase().trim();
+    let visibleCount = 0;
+   
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question span').innerText.toLowerCase();
+      const answer = item.querySelector('.faq-answer').innerText.toLowerCase();
+     
+      if (question.includes(searchTerm) || answer.includes(searchTerm) || searchTerm === '') {
+        item.classList.remove('hide-faq');
+        visibleCount++;
+      } else {
+        item.classList.add('hide-faq');
+      }
+    });
+   
+    if (visibleCount === 0 && searchTerm !== '') {
+      noResults.style.display = 'block';
+    } else {
+      noResults.style.display = 'none';
+    }
+  }
+ 
+  if (searchInput) {
+    searchInput.addEventListener('input', searchFAQs);
+  }
+</script>
+</body>
+</html>
+
+    
